@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid class="d-flex justify-center align-center" style="height: 90vh">
-    <v-card class="personal_bg_card pa-5" :width="width" style="margin: 0 auto">
+  <v-container fluid class="d-flex justify-center align-center" :width="width">
+    <v-card class="personal_bg_card pa-5"  style="margin: 0 auto">
       <v-row>
         <v-col>
           <h1 class="d-flex justify-center primary--text">Cadastrar</h1>
@@ -58,7 +58,7 @@
         <v-row dense>
           <v-col>
             <v-switch v-model="switch_org_resgate"
-              :label="`Você é organização de resgate: ${switch_org_resgate ? 'Sim' : 'Não'}`"></v-switch>
+              :label="`Você é organização de resgate ou voluntario? ${switch_org_resgate ? 'Sim' : 'Não'}`"></v-switch>
 
           </v-col>
         </v-row>
