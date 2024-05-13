@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card style="margin: 0 auto; margin-top: 15px" :width="width" elevation="6" :loading="loading" class="pb-10">
+    <v-card style="margin: 0 auto; margin-top: 15px" :width="width" elevation="6" :loading="loading" class="pb-2">
       <v-card-title class="primary--text">Informações da conta</v-card-title>
       <v-divider></v-divider>
       <v-container class="d-flex" style="background: #f5f5f5"><v-avatar style="border: solid 1px #c5c5c5" size="105">
@@ -44,8 +44,8 @@
               <td class="text-left pl-0 pr-0">{{ userPerfilCellPhone }}</td>
               <td class="d-flex justify-end  align-center">
                 <v-btn style="color: white" tile small color="personal_action_2 lighten-2" @click="
-                  btnEditUser({ name: 'telefone', value: '+556696112740' })
-                  ">
+      btnEditUser({ name: 'telefone', value: '+556696112740' })
+      ">
                   <v-icon small> mdi-pencil </v-icon>
                 </v-btn>
               </td>
@@ -55,9 +55,18 @@
       </v-simple-table>
       <!--fim codigo da tabela-->
       <v-divider></v-divider>
-      <v-row>
-        <v-btn class="ml-6 mt-10" small color="red" dark @click="deletar()">Deletar conta</v-btn>
-      </v-row>
+      <v-card-actions>
+        <v-btn small color="red" dark @click="deletar()">Deletar conta</v-btn>
+      </v-card-actions>
+    </v-card>
+
+    <v-card style="margin: 0 auto; margin-top: 15px" :width="width" elevation="6" :loading="loading" class="pb-2 mt-6">
+      <v-card-title class="primary--text">Informaçoes da Instituição</v-card-title>
+      <v-divider></v-divider>
+      <FormEndereco />
+      <v-card-actions>
+        <v-btn color="primary" small>Salvar</v-btn>
+      </v-card-actions>
     </v-card>
 
     <!--Componente para editar dados de usuario-->
@@ -97,11 +106,13 @@ import { mapState } from "vuex";
 import ModalImgT from "../components/ModalUpImage.vue"; // Modal para tratamento e upload da imagem
 import ModalAlert from "../components/ModalAlert.vue";
 import ModalEditUser from "../components/ModalEditUser.vue";
+import FormEndereco from "../components/FormEndereco.vue";
 export default {
   components: {
     ModalAlert,
     ModalImgT,
     ModalEditUser,
+    FormEndereco,
   },
   name: "cardAccount",
   data: () => ({
@@ -163,13 +174,13 @@ export default {
     },
     //atualiza user
     updateUser(dataUserEdited) {
-      
+
       try {
         //passa o nome a ser atualizado
         let firstName = dataUserEdited.firstName;
         let lastName = dataUserEdited.lastName;
         let path = "";
-        
+
         //nome completo
         if (firstName != null && lastName != null && firstName.length > 0 && lastName.length > 0) {
           let fullName = firstName + " " + lastName;
@@ -211,8 +222,8 @@ export default {
         else {
           console.log("nada");
         }
-       
-      
+
+
         //passa o telefone a ser atualizado
         if (dataUserEdited.cellPhone != null) {
           this.$store.dispatch("updateUserDataFirebase", {
