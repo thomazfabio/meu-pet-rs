@@ -2,10 +2,21 @@
   <v-app style="background-color: #EBEBEB;">
     <Spinner />
     <v-main>
-      <v-card  style="border-radius: 0px" class="mx-auto overflow-auto personal_bg_1" height="100vh">
+      <v-card style="border-radius: 0px" class="mx-auto overflow-auto personal_bg_1" height="100vh">
         <v-app-bar height="40px" color="primary" dark>
           <v-app-bar-nav-icon v-if="isLogged" @click="drawer = true"></v-app-bar-nav-icon>
-          <v-toolbar-title>Meu Pet Rio Grande do Sul 1.0</v-toolbar-title>
+          <v-toolbar-title>Meu Pet RS</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <router-link style="text-decoration: none" to="/register">
+            <v-btn class="ma-2" text color="yellow">
+              Cadastre-se
+            </v-btn>
+          </router-link>
+          <router-link style="text-decoration: none" to="/login">
+            <v-btn class="ma-2" text color="whit">
+              Login
+            </v-btn>
+          </router-link>
         </v-app-bar>
         <router-view></router-view>
         <v-navigation-drawer v-model="drawer" absolute temporary>

@@ -63,7 +63,9 @@
     <v-card style="margin: 0 auto; margin-top: 15px" :width="width" elevation="6" :loading="loading" class="pb-2 mt-6">
       <v-card-title class="primary--text">Informaçoes da Instituição</v-card-title>
       <v-divider></v-divider>
+      <v-card-subtitle class="primary--text">Endereço</v-card-subtitle>
       <FormEndereco />
+      <v-divider></v-divider>
       <v-card-actions>
         <v-btn color="primary" small>Salvar</v-btn>
       </v-card-actions>
